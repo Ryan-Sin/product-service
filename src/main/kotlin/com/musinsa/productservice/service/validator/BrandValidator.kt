@@ -15,3 +15,7 @@ fun validateBrandNotExists(brandEntity: Optional<BrandEntity>): BrandEntity {
         CommonException(HttpStatus.NOT_FOUND, ErrorMessage.NOT_EXIST_BRAND)
     }
 }
+
+fun validateBrandNotExists(brandEntity: BrandEntity?): BrandEntity {
+    return brandEntity ?: throw CommonException(HttpStatus.NOT_FOUND, ErrorMessage.NOT_EXIST_BRAND)
+}

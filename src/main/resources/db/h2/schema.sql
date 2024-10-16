@@ -3,3 +3,9 @@ CREATE TABLE IF NOT EXISTS category (
     name VARCHAR(255) NOT NULL,
     UNIQUE (name)
 );
+
+CREATE TABLE IF NOT EXISTS brand (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    UNIQUE (name)
+);

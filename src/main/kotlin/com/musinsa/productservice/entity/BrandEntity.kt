@@ -16,7 +16,7 @@ import java.time.Instant
 class BrandEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    val id: Long? = null,
 
     @Column(name = "name", nullable = false)
     private var name: String,
