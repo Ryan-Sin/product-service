@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS brand (
     UNIQUE (name)
 );
 
-CREATE INDEX idx_brand_deleted_at ON brand(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_brand_deleted_at ON brand(deleted_at);
 
 CREATE TABLE IF NOT EXISTS product (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -28,4 +28,4 @@ CREATE TABLE IF NOT EXISTS product (
     CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE INDEX idx_deleted_at ON product(deleted_at);
+CREATE INDEX IF NOT EXISTS idx_deleted_at ON product(deleted_at);
