@@ -7,5 +7,25 @@ CREATE TABLE IF NOT EXISTS category (
 CREATE TABLE IF NOT EXISTS brand (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP,
     UNIQUE (name)
 );
+
+CREATE INDEX idx_brand_deleted_at ON brand(deleted_at);
+
+CREATE TABLE IF NOT EXISTS product (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price BIGINT NOT NULL,
+    brand_id BIGINT,
+    category_id BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP,
+    CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES brand(id),
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+CREATE INDEX idx_deleted_at ON product(deleted_at);

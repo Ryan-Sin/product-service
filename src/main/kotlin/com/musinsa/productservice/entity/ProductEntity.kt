@@ -19,15 +19,18 @@ class ProductEntity(
     val id: Long? = null,
 
     @Column(name = "name", nullable = false)
-    val name: String,
+    private var name: String,
+
+    @Column(name = "price", nullable = false)
+    private var price: Long,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
-    val brand: BrandEntity,
+    private var brand: BrandEntity,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    val category: CategoryEntity,
+    private var category: CategoryEntity,
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
@@ -39,4 +42,16 @@ class ProductEntity(
 
     @Column(name = "deleted_at")
     val deletedAt: Instant? = null
-)
+){
+    fun updateProductInfo(
+        name: String,
+        price: Long,
+        brand: BrandEntity,
+        category: CategoryEntity,
+    ) {
+        this.name = name
+        this.price = price
+        this.brand = brand
+        this.category = category
+    }
+}
