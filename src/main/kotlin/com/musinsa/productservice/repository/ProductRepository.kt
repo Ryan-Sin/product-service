@@ -37,4 +37,12 @@ class ProductRepository(
     fun softDelete(productEntity: ProductEntity) {
         this.productPersistence.delete(productEntity)
     }
+
+    fun findJoinBrandAndCategory(): List<ProductEntity> {
+        return this.productPersistence.findJoinBrandAndCategory()
+    }
+
+    fun findProductsByCategoryName(categoryName: String) :List<ProductEntity> {
+        return  this.productPersistence.findProductsByCategoryName(categoryName)
+    }
 }

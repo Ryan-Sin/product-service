@@ -43,6 +43,11 @@ class ProductEntity(
     @Column(name = "deleted_at")
     val deletedAt: Instant? = null
 ){
+    fun getName() = this.name
+    fun getPrice() = this.price
+    fun getCategory() = this.category
+    fun getBrand() = this.brand
+
     fun updateProductInfo(
         name: String,
         price: Long,
@@ -54,4 +59,10 @@ class ProductEntity(
         this.brand = brand
         this.category = category
     }
+
+    override fun toString(): String {
+        return "ProductEntity(id=$id, name='$name', price=$price, brand=$brand, category=$category, createdAt=$createdAt, updatedAt=$updatedAt, deletedAt=$deletedAt)"
+    }
+
+
 }

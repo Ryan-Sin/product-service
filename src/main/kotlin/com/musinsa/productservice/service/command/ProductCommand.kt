@@ -18,3 +18,7 @@ data class UpdateProductCommand(
 data class DeleteProductCommand(
     val id: Long
 )
+
+data class GetPriceRangeForCategoryCommand(
+    val categoryName: String
+)
