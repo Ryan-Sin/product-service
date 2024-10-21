@@ -56,4 +56,4 @@
 ```
 
 ## API 문서
-Swagger 문서화 도구를 통해 API 명세를 확인할 수 있습니다. 애플리케이션 실행 후, http://localhost:8080/swagger-ui.html에서 Swagger UI에 접속 가능합니다.
+Swagger 문서화 도구를 통해 API 명세를 확인할 수 있습니다. 애플리케이션 실행 후, http://localhost:8080/swagger-ui.html 에서 Swagger UI에 접속 가능합니다.
