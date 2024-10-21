@@ -1,6 +1,10 @@
 spring:
   application:
     name: product-service
+  profiles:
+    group:
+      "memory": "memory"
+    active: memory
 
 ---
 spring:
