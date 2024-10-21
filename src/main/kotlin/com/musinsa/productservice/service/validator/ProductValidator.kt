@@ -10,10 +10,6 @@ fun validateProductExists(productEntity: ProductEntity?) {
     if (productEntity != null) throw CommonException(HttpStatus.CONFLICT, ErrorMessage.EXIST_PRODUCT)
 }
 
-fun validateProductNotExists(productEntity: ProductEntity?): ProductEntity {
-    return productEntity ?: throw CommonException(HttpStatus.NOT_FOUND, ErrorMessage.NOT_EXIST_PRODUCT)
-}
-
 fun validateProductNotExists(productEntity: Optional<ProductEntity>): ProductEntity {
     return productEntity.orElseThrow{
         CommonException(HttpStatus.NOT_FOUND, ErrorMessage.NOT_EXIST_PRODUCT)
